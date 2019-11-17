@@ -1,5 +1,6 @@
 ﻿namespace Marketplace.Data
 {
+    using Marketplace.Data.Configurations;
     using Marketplace.Data.Models;
     using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
     using Microsoft.EntityFrameworkCore;
@@ -39,18 +40,27 @@
 
         public DbSet<UpdateAd> UpdateAds { get; set; }
 
-        public DbSet<AdRejection> AdRejections { get; set; }
+        public DbSet<AdRejection> AdRejections { get; set; }      
 
-        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        //{
-        //    optionsBuilder.UseLazyLoadingProxies();
-        //}
-
-        protected override void OnModelCreating(ModelBuilder builder)
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            base.OnModelCreating(builder);
+            modelBuilder.ApplyConfiguration(new AdConfiguration());
+            modelBuilder.ApplyConfiguration(new AddressConfiguration());
+            modelBuilder.ApplyConfiguration(new AdRejectionConfiguration());
+            modelBuilder.ApplyConfiguration(new CategoryConfiguration());
+            modelBuilder.ApplyConfiguration(new ConditionConfiguration());
+            modelBuilder.ApplyConfiguration(new ImageConfiguration());
+            modelBuilder.ApplyConfiguration(new MessageConfiguration());
+            modelBuilder.ApplyConfiguration(new PromotionConfiguration());
+            modelBuilder.ApplyConfiguration(new PromotionsOrderConfiguration());
+            modelBuilder.ApplyConfiguration(new ReviewConfiguration());
+            modelBuilder.ApplyConfiguration(new SubCategoryConfiguration());
+            modelBuilder.ApplyConfiguration(new UpdateAdConfiguration());
+            modelBuilder.ApplyConfiguration(new UserAddressConfiguration());
+            modelBuilder.ApplyConfiguration(new UserConfiguration());
+            modelBuilder.ApplyConfiguration(new UserFavoriteProductConfiguration());
 
-            builder.ApplyConfigurationsFromAssembly(typeof(MarketplaceDbContext).Assembly);
+            base.OnModelCreating(modelBuilder);
         }
     }
 }

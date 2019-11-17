@@ -1,8 +1,12 @@
-﻿using System;
-
-namespace Marketplace.Common
+﻿namespace Marketplace.Common
 {
-    public class GlobalConstants
+    public static class GlobalConstants
     {
+        public const string AdministratorRoleName = "Administrator";
+
+        public const string ConditionBrandNewName = "Brand New";
+        public const string ConditionUsedName = "Used";
+
+
     }
 }
