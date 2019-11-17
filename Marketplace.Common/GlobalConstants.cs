@@ -2,7 +2,7 @@
 
 namespace Marketplace.Common
 {
-    public class Class1
+    public class GlobalConstants
     {
     }
 }
