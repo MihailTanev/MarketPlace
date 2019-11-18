@@ -6,7 +6,5 @@
 
         public const string ConditionBrandNewName = "Brand New";
         public const string ConditionUsedName = "Used";
-
-
     }
 }
